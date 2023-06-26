@@ -1,0 +1,35 @@
+---
+title: "Week 5 activity"
+author: "Vinodh"
+date: "2023-06-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r visualization, echo=TRUE}
+cran_mirror <- "https://cloud.r-project.org" 
+
+install.packages("knitr",  repos = cran_mirror)
+
+install.packages("ggplot2", repos = cran_mirror)
+library(ggplot2)
+
+birth_data_set<- read.csv("/Users/vinodhjanga/Downloads/US_births_2000-2014_SSA.csv")
+
+scatter_plot<- ggplot(birth_data_set, aes(x=year, y=births))+geom_point()+
+  labs(title= "Years vs Births", x="Years", y="Births")
+
+scatter_plot
+
+Histogram_chart <- ggplot(birth_data_set, aes(x = births)) +
+  geom_histogram(binwidth = 40 , fill = "blue") +
+  labs(title = "No of Biths", x = "Births", )
+
+Histogram_chart
+
+```
+
+
